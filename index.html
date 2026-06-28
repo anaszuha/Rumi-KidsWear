@@ -3,398 +3,512 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rumi | Premium Kids Lawn</title>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-awesome/6.0.0/css/all.min.css">
+    <title>Rumi - Premium Kids Wear</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #b89775; /* Premium Gold/Rose tone */
-            --text-color: #333;
-            --light-bg: #f9f9f9;
-            --white: #ffffff;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
+            background-color: #fcfbfa;
         }
 
-        /* Navigation Bar */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 15px;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
+        .logo h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+            color: #1a1a1a;
             font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.85)), url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
+        .tagline p {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+            font-weight: 500;
         }
 
-        /* Catalog Section */
-        .catalog-container {
+        .main-container {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent-color);
-            margin: 10px auto 0 auto;
-        }
-
-        /* Product Grid */
-        .product-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        /* Product Card */
-        .product-card {
-            background: var(--white);
-            border-radius: 8px;
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
             position: relative;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            border: 1px solid #f0eee9;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(184, 151, 117, 0.1);
+            border-color: #b89775;
         }
 
-        .product-image-wrapper {
+        .img-container {
             position: relative;
-            padding-top: 125px; /* 4:5 Aspect Ratio */
-            background: #eaeaea;
+            width: 100%;
+            padding-top: 133%; /* 3:4 Aspect Ratio */
+            overflow: hidden;
+            background-color: #f7f5f0;
         }
 
-        .product-image {
+        .img-container img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        /* New Limited Stock Badge Styling */
-        .badge-limited {
+        .card:hover .img-container img {
+            transform: scale(1.05);
+        }
+
+        .badge {
             position: absolute;
             top: 15px;
             left: 15px;
-            background-color: var(--accent-color);
+            background-color: #b89775;
             color: #fff;
-            padding: 6px 12px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
+            padding: 6px 14px;
+            font-size: 10px;
             font-weight: 600;
-            letter-spacing: 1px;
-            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
             z-index: 10;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        .product-info {
-            padding: 20px;
+        /* Distinctive styling for limited stock alert */
+        .badge-limited {
+            background-color: #d9822b;
+        }
+
+        .info-container {
+            padding: 25px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            background: #fff;
         }
 
-        .product-title {
-            font-size: 1.1rem;
+        .brand-name {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b89775;
             font-weight: 600;
-            color: var(--primary-color);
             margin-bottom: 8px;
         }
 
-        .product-meta {
-            font-size: 0.85rem;
-            color: #777;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .product-title {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            color: #222;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
 
-        .product-price-row {
+        .details-box {
+            background-color: #fdfcf9;
+            border: 1px solid #f5f2eb;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-item i {
+            color: #b89775;
+            width: 16px;
+            font-size: 12px;
+        }
+
+        .price-btn-box {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
             padding-top: 15px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #f5f2eb;
         }
 
-        .product-price {
-            font-size: 1.25rem;
+        .price-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 22px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1a1a1a;
         }
 
-        /* Order Button styling restored */
-        .btn-order {
-            background-color: #25d366; /* WhatsApp Green */
-            color: var(--white);
-            border: none;
-            padding: 10px 16px;
-            font-size: 0.9rem;
+        .order-btn {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 13px;
             font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            display: inline-flex;
+            letter-spacing: 0.5px;
+            display: flex;
             align-items: center;
             gap: 8px;
-            text-decoration: none;
-            transition: background-color 0.2s ease;
+            transition: all 0.3s ease;
+            border: 1px solid #1a1a1a;
         }
 
-        .btn-order:hover {
-            background-color: #128c7e;
+        .order-btn:hover {
+            background-color: #b89775;
+            border-color: #b89775;
+            transform: translateY(-2px);
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
+        .sold-btn {
+            background-color: #f5f2eb;
+            color: #999;
+            border: 1px solid #f5f2eb;
+            cursor: not-allowed;
         }
 
-        footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .sold-btn:hover {
+            background-color: #f5f2eb;
+            border-color: #f5f2eb;
+            color: #999;
+            transform: none;
         }
 
-        /* WhatsApp Modal Placeholder Rules */
-        .modal-overlay {
+        /* Modal Settings */
+        .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            padding: 20px;
         }
 
-        .modal-overlay:target {
+        .modal:target {
             display: flex;
         }
 
-        .modal-content {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
+        .modal-card {
+            background-color: #fff;
+            max-width: 450px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             position: relative;
             text-align: center;
+            animation: slideUp 0.4s ease;
         }
 
-        .close-modal {
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #999;
             text-decoration: none;
-            color: #aaa;
-            font-size: 1.5rem;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #1a1a1a;
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #fcfbfa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            color: #b89775;
+            font-size: 24px;
+            border: 1px solid #f5f2eb;
+        }
+
+        .modal-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .modal-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .whatsapp-confirm-btn {
+            background-color: #25d366;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-confirm-btn:hover {
+            background-color: #128c7e;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: 8px;
+            border-top: 4px solid #b89775;
+        }
+
+        @media (max-width: 600px) {
+            .logo h1 { font-size: 32px; }
+            .grid { grid-template-columns: 1fr; gap: 30px; }
+            .info-container { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigation -->
     <header>
-        <div class="navbar">
-            <a href="#" class="logo">RUMI<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Collection</a></li>
-                <li><a href="#">About Us</a></li>
-            </ul>
+        <div class="logo">
+            <h1>RUMI</h1>
+        </div>
+        <div class="tagline">
+            <p>Branded Premium Lawn For Kids</p>
         </div>
     </header>
 
-    <!-- Hero Showcase Section -->
-    <section class="hero">
-        <h1>Premium Kids Lawn Collection</h1>
-        <p>Crafted from authentic, high-quality branded fabrics keeping your little ones stylish and comfortable.</p>
-    </section>
+    <div class="main-container">
+        <div class="grid">
 
-    <!-- Main Catalog Grid -->
-    <main class="catalog-container">
-        <h2 class="section-title">Our Premium Outfits</h2>
-        
-        <div class="product-grid">
-            
-            <!-- FIXED CARD: Standard Interactive Card with Limited Stock Badge -->
-            <div class="product-card">
-                <!-- Soft Gold Premium Badge applied -->
-                <div class="badge-limited">Limited Stock (Size 22 only)</div>
-                
-                <div class="product-image-wrapper">
-                    <img src="https://via.placeholder.com/400x500" alt="Premium Lawn Dress" class="product-image">
+            <!-- PRODUCT 1 (UPDATED: Restored to full active order layout + custom limited badge) -->
+            <div class="card">
+                <div class="badge badge-limited">Limited Stock (Age 3-4 only)</div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1622290319146-7b6c8b2a0d77?q=80&w=600&auto=format&fit=crop" alt="Kids Dress">
                 </div>
-                
-                <div class="product-info">
-                    <h3 class="product-title">Alkaram Premium Edition 2-Piece</h3>
-                    <div class="product-meta">
-                        <i class="fa-solid fa-scissors"></i> <span>Branded Premium Lawn Fabric</span>
+                <div class="info-container">
+                    <div class="brand-name">Alkaram Premium</div>
+                    <h2 class="product-title">Floral Symphony 2-Piece</h2>
+                    <div class="details-box">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-scissors"></i>
+                            <span>Premium Lawn Fabric</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                            <span>Size: 22 (Age group 3-4)</span>
+                        </div>
                     </div>
-                    
-                    <!-- Fixed & fully restored active price action block -->
-                    <div class="product-price-row">
-                        <span class="product-price">Rs. 1,850</span>
-                        <a href="#checkout-modal" class="btn-order">
-                            <i class="fab fa-whatsapp"></i> Order Now
+                    <div class="price-btn-box">
+                        <div class="price-box">
+                            <span class="price-label">Price</span>
+                            <span class="price">Rs. 1,850</span>
+                        </div>
+                        <a href="#modal-order-1" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Product Card 2 -->
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://via.placeholder.com/400x500" alt="Premium Lawn Dress" class="product-image">
+            <!-- PRODUCT 2 -->
+            <div class="card">
+                <div class="badge">New Arrival</div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?q=80&w=600&auto=format&fit=crop" alt="Kids Dress">
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Gul Ahmed Floral Kids 2-Piece</h3>
-                    <div class="product-meta">
-                        <i class="fa-solid fa-scissors"></i> <span>Branded Premium Lawn Fabric</span>
+                <div class="info-container">
+                    <div class="brand-name">Gul Ahmed Luxe</div>
+                    <h2 class="product-title">Summer Blossom Ensemble</h2>
+                    <div class="details-box">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-scissors"></i>
+                            <span>100% Branded Lawn</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                            <span>Available Sizes: 24, 26, 28</span>
+                        </div>
                     </div>
-                    <div class="product-price-row">
-                        <span class="product-price">Rs. 1,850</span>
-                        <a href="#checkout-modal" class="btn-order">
-                            <i class="fab fa-whatsapp"></i> Order Now
+                    <div class="price-btn-box">
+                        <div class="price-box">
+                            <span class="price-label">Price</span>
+                            <span class="price">Rs. 1,850</span>
+                        </div>
+                        <a href="#modal-order-2" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Product Card 3 -->
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://via.placeholder.com/400x500" alt="Premium Lawn Dress" class="product-image">
+            <!-- PRODUCT 3 -->
+            <div class="card">
+                <div class="badge">Best Seller</div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?q=80&w=600&auto=format&fit=crop" alt="Kids Dress">
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Classic Summer Lawn Ensemble</h3>
-                    <div class="product-meta">
-                        <i class="fa-solid fa-scissors"></i> <span>Branded Premium Lawn Fabric</span>
+                <div class="info-container">
+                    <div class="brand-name">J. Exclusive</div>
+                    <h2 class="product-title">Pastel Meadow Suit</h2>
+                    <div class="details-box">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-scissors"></i>
+                            <span>AirJet Premium Lawn Fabric</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                            <span>Available Sizes: 22, 24, 26</span>
+                        </div>
                     </div>
-                    <div class="product-price-row">
-                        <span class="product-price">Rs. 1,850</span>
-                        <a href="#checkout-modal" class="btn-order">
-                            <i class="fab fa-whatsapp"></i> Order Now
+                    <div class="price-btn-box">
+                        <div class="price-box">
+                            <span class="price-label">Price</span>
+                            <span class="price">Rs. 1,850</span>
+                        </div>
+                        <a href="#modal-order-3" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
                         </a>
                     </div>
                 </div>
             </div>
 
         </div>
-    </main>
+    </div>
 
-    <!-- Active WhatsApp Checkout Trigger Modal -->
-    <div id="checkout-modal" class="modal-overlay">
-        <div class="modal-content">
-            <a href="#" class="close-modal">&times;</a>
-            <h3>Complete Your Order</h3>
-            <p style="margin: 15px 0; color: #666;">You will be redirected to WhatsApp to confirm your size and delivery address details with us.</p>
-            <a href="https://wa.me/your-number-here" target="_blank" class="btn-order" style="justify-content: center; width: 100%;">
-                <i class="fab fa-whatsapp"></i> Open WhatsApp Chat
+    <!-- MODAL 1 -->
+    <div id="modal-order-1" class="modal">
+        <div class="modal-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="modal-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <h3>Confirm Your Selection</h3>
+            <p>You are purchasing the Floral Symphony 2-Piece (Size 22, Age 3-4). Tap below to send your order details directly via WhatsApp.</p>
+            <a href="https://wa.me/923001234567?text=Hi%20Rumi%20Premium%20Kids%20Wear,%20I%20want%20to%20order%20the%20Floral%20Symphony%202-Piece%20(Size%2022,%20Age%203-4)." target="_blank" class="whatsapp-confirm-btn">
+                <i class="fa-brands fa-whatsapp"></i> Send WhatsApp Order
             </a>
         </div>
     </div>
 
-    <!-- Page Footer -->
+    <!-- MODAL 2 -->
+    <div id="modal-order-2" class="modal">
+        <div class="modal-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="modal-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <h3>Confirm Your Selection</h3>
+            <p>You are purchasing the Summer Blossom Ensemble. Tap below to select your desired size and send your order details via WhatsApp.</p>
+            <a href="https://wa.me/923001234567?text=Hi%20Rumi%20Premium%20Kids%20Wear,%20I%20want%20to%20order%20the%20Summer%20Blossom%20Ensemble." target="_blank" class="whatsapp-confirm-btn">
+                <i class="fa-brands fa-whatsapp"></i> Send WhatsApp Order
+            </a>
+        </div>
+    </div>
+
+    <!-- MODAL 3 -->
+    <div id="modal-order-3" class="modal">
+        <div class="modal-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="modal-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <h3>Confirm Your Selection</h3>
+            <p>You are purchasing the Pastel Meadow Suit. Tap below to select your desired size and send your order details via WhatsApp.</p>
+            <a href="https://wa.me/923001234567?text=Hi%20Rumi%20Premium%20Kids%20Wear,%20I%20want%20to%20order%20the%20Pastel%20Meadow%20Suit." target="_blank" class="whatsapp-confirm-btn">
+                <i class="fa-brands fa-whatsapp"></i> Send WhatsApp Order
+            </a>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Rumi Premium Lawn. Beautifully designed for children.</p>
+        <p>&copy; 2026 RUMI. All Rights Reserved.</p>
     </footer>
 
 </body>
-  </html>
+                            </html>
