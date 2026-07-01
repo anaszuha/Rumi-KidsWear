@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Rumi – Handmade Kids Wear</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--rose:#C2745A;--blush:#F2E8E1;--cream:#FAF6F2;--bark:#5C2E1A;--sage:#7A9473;--white:#fff;--text:#2C1A0E;--muted:#9A7B6C;--border:#E4D0C4}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+header{background:var(--white);border-bottom:1px solid var(--border);padding:0 clamp(1rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;height:68px}
+.logo-img{height:50px;width:auto;object-fit:contain}
+.logo-fb{font-family:'Dancing Script',cursive;font-size:26px;color:var(--bark);display:none}
+nav{display:flex;gap:20px}
+nav a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:color .2s}
+nav a:hover{color:var(--rose)}
+.wa-hdr{background:#25D366;color:#fff;border:none;border-radius:24px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:7px;text-decoration:none;white-space:nowrap}
+.hero{background:linear-gradient(135deg,#F9EFE9,#EDE4DC,#E5D8CE);padding:clamp(2.5rem,7vw,5rem) clamp(1rem,6vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;min-height:460px;overflow:hidden;position:relative}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(194,116,90,.08)}
+.hero-tag{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:20px;padding:5px 14px;margin-bottom:16px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;color:var(--bark);margin-bottom:14px}
+.hero h1 span{font-style:italic;color:var(--rose)}
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:24px;max-width:400px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{background:var(--rose);color:#fff;border:none;border-radius:28px;padding:12px 24px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 18px rgba(194,116,90,.35);transition:transform .15s}
+.btn-p:hover{transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--rose);border:2px solid var(--rose);border-radius:28px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s,color .15s}
+.btn-s:hover{background:var(--rose);color:#fff}
+.hero-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-imgs img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.12)}
+.hero-imgs img:first-child{margin-top:24px}
+.trust{background:var(--bark);color:#fff;display:flex;justify-content:center;gap:clamp(1rem,4vw,3rem);padding:14px clamp(1rem,5vw,3rem);flex-wrap:wrap}
+.trust span{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500}
+.sec{padding:clamp(2.5rem,6vw,4.5rem) clamp(1rem,6vw,4rem)}
+.sec-alt{background:var(--blush)}
+.sec-hd{text-align:center;margin-bottom:36px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.3rem);color:var(--bark);line-height:1.2}
+.sec-sub{font-size:14px;color:var(--muted);margin-top:6px}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.wc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px 20px;text-align:center}
+.wc .i{font-size:32px;margin-bottom:12px}
+.wc h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--bark);margin-bottom:6px}
+.wc p{font-size:13px;color:var(--muted);line-height:1.6}
+.feat-wrap{padding:0 clamp(1rem,6vw,4rem) clamp(2.5rem,6vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feat-wrap img{width:100%;border-radius:18px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.col-banner{padding:clamp(1.5rem,4vw,2.5rem) clamp(1rem,6vw,4rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.col-banner h2{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3vw,2rem);color:#fff}
+.col-banner p{font-size:13px;color:rgba(255,255,255,.7);margin-top:4px}
+.cb-orig{background:linear-gradient(135deg,var(--bark),#3d1a08)}
+.cb-new{background:linear-gradient(135deg,#1a3d2e,#0d2419)}
+.new-badge{background:var(--rose);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:20px;padding:6px 16px;white-space:nowrap}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.pcard{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(194,116,90,.18)}
+.pcard-img{position:relative;overflow:hidden}
+.pcard-img img.main{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s}
+.pcard:hover .pcard-img img.main{transform:scale(1.04)}
+.pbadge{position:absolute;top:10px;left:10px;color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:4px 9px}
+.pb-a{background:var(--rose)}.pb-n{background:#2e7d32}.pb-l{background:#E07B00}.pb-o{background:#999}
+.pswatch{position:absolute;bottom:10px;right:10px}
+.pswatch img{width:44px;height:44px;border-radius:10px;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.pinfo{padding:16px 16px 18px}
+.pbrand{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.pname{font-family:'Playfair Display',serif;font-size:16px;color:var(--bark);margin-bottom:4px}
+.ftag{display:inline-block;background:#EAF4EC;color:#3a7d4f;font-size:11px;font-weight:600;border-radius:20px;padding:3px 10px;margin-bottom:8px}
+.pdesc{font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.5}
+.ltag{font-size:11px;color:#7a5c2e;background:#FFF8ED;border-radius:6px;padding:4px 8px;margin-bottom:8px;display:inline-block}
+.snote{font-size:12px;color:#b85c00;background:#fff3e0;border-left:3px solid #E07B00;border-radius:5px;padding:5px 9px;margin-bottom:10px;font-weight:500}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pprice{font-size:19px;font-weight:700;color:var(--rose)}
+.pprice span{font-size:12px;font-weight:400;color:var(--muted)}
+.obtn{background:var(--rose);color:#fff;border:none;border-radius:22px;padding:9px 16px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;text-decoration:none;transition:opacity .2s;white-space:nowrap}
+.obtn:hover{opacity:.88}
+.cpick{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.cpick-lbl{font-size:12px;font-weight:600;color:var(--muted)}
+.cpick-dots{display:flex;gap:6px}
+.cdot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0;transition:transform .15s,border-color .15s}
+.cdot:hover{transform:scale(1.15)}
+.cdot.active{border-color:var(--bark);transform:scale(1.15);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--bark)}
+.cname{font-size:12px;color:var(--text);font-weight:500}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px}
+.fcard{border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1);position:relative;cursor:pointer}
+.fcard img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:transform .35s}
+.fcard:hover img{transform:scale(1.06)}
+.flbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(44,26,14,.75));color:#fff;font-size:11px;font-weight:600;padding:20px 10px 8px;line-height:1.3}
+.size-sec{background:var(--bark);color:#fff;padding:clamp(2.5rem,6vw,4.5rem) clamp(1rem,6vw,4rem)}
+.size-sec .sec-title{color:#fff}.size-sec .eyebrow{color:#E4B8A2}.size-sec .sec-sub{color:rgba(255,255,255,.65)}
+.tbl-wrap{overflow-x:auto;margin-top:28px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
+th{background:rgba(255,255,255,.12);padding:12px 14px;text-align:left;font-weight:600;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+tr:hover td{background:rgba(255,255,255,.05)}
+.cnote{margin-top:18px;background:rgba(255,255,255,.1);border-left:3px solid var(--rose);border-radius:8px;padding:13px 16px;font-size:14px;color:rgba(255,255,255,.9)}
+.ccards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ccard{background:var(--white);border-radius:22px;overflow:hidden;box-shadow:0 4px 24px rgba(194,116,90,.12);border:1px solid var(--border);display:flex;flex-direction:column}
+.ctop{padding:24px 28px 18px;display:flex;align-items:center;gap:14px}
+.ctop-s{background:linear-gradient(135deg,#FFF3E0,#FFE0B2)}.ctop-d{background:linear-gradient(135deg,#F3E5F5,#E1BEE7)}
+.cemoji{font-size:34px}
+.cbadge{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:20px;padding:5px 14px}
+.cbd{background:#8e44ad}
+.cbody{padding:0 28px 28px;display:flex;flex-direction:column;flex:1}
+.ctitle{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.35rem);color:var(--bark);line-height:1.3;margin-bottom:10px}
+.cdesc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.cpts{display:flex;flex-direction:column;gap:9px;margin-bottom:20px}
+.cpt{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text);line-height:1.5}
+.cbtn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;border:none;border-radius:26px;padding:12px 20px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;margin-top:auto}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.prcard{background:var(--white);border-radius:20px;padding:28px 24px;text-align:center;border:2px solid transparent}
+.prcard.feat{border-color:var(--rose);position:relative}
+.prcard.feat::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--rose);color:#fff;font-size:10px;font-weight:700;padding:4px 14px;border-radius:20px}
+.pr-lbl{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
+.pr-amt{font-family:'Playfair Display',serif;font-size:38px;color:var(--bark)}
+.pr-amt sup{font-size:18px;vertical-align:super}
+.pr-note{font-size:11px;color:var(--muted);margin-top:4px}
+.pr-list{list-style:none;margin:18px 0;text-align:left}
+.pr-list li{font-size:13px;color:var(--text);padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.pr-list li::before{content:'✓';color:var(--sage);font-weight:700}
+.contact-sec{padding:clamp(2.5rem,6vw,4.5rem) clamp(1rem,6vw,4rem);text-align:center}
+.cc-wrap{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:28px}
+.cc{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:24px 28px;min-width:180px;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s;display:block}
+.cc:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(194,116,90,.18)}
+.cc .cci{font-size:30px;margin-bottom:10px}
+.cc h3{font-size:14px;font-weight:600;color:var(--bark);margin-bottom:3px}
+.cc p{font-size:13px;color:var(--muted)}
+.big-wa{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;border:none;border-radius:36px;padding:15px 30px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;margin-top:28px;box-shadow:0 6px 28px rgba(37,211,102,.35);transition:transform .15s}
+.big-wa:hover{transform:translateY(-2px)}
+footer{background:var(--bark);color:rgba(255,255,255,.7);text-align:center;padding:24px;font-size:13px}
+footer strong{color:#fff}
+.mov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:999;align-items:center;justify-content:center;padding:16px}
+.mov.open{display:flex}
+.modal{background:var(--white);border-radius:22px;padding:28px 26px;max-width:460px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);max-height:90vh;overflow-y:auto}
+.mcl{position:absolute;top:14px;right:18px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted)}
+.modal h2{font-family:'Playfair Display',serif;color:var(--bark);margin-bottom:4px;font-size:20px}
+.mdress{font-size:13px;color:var(--rose);font-weight:600;margin-bottom:16px}
+.modal label{display:block;font-size:12px;font-weight:600;color:var(--text);margin-bottom:5px;margin-top:12px}
+.modal input,.modal select,.modal textarea{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:9px 12px;font-size:14px;font-family:inherit;color:var(--text);background:var(--cream);outline:none;transition:border-color .2s}
+.modal input:focus,.modal select:focus,.modal textarea:focus{border-color:var(--rose)}
+.modal textarea{resize:vertical;min-height:60px}
+.msub{width:100%;margin-top:16px;background:#25D366;color:#fff;border:none;border-radius:26px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.hero-imgs{display:none}.feat-wrap{grid-template-columns:1fr}nav{display:none}.trust{gap:14px}.ccards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <img class="logo-img" src="images/logo.png" alt="Rumi" onerror="this.style.display='none';document.querySelector('.logo-fb').style.display='block'"/>
+  <span class="logo-fb">Rumi</span>
+  <nav>
+    <a href="#originals">Shop</a>
+    <a href="#newcol">New</a>
+    <a href="#fabrics">Fabrics</a>
+    <a href="#sizes">Sizes</a>
+    <a href="#custom">Custom</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="https://wa.me/923133164008" target="_blank" class="wa-hdr">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Order on WhatsApp
+  </a>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="hero-tag">✦ Handmade Kids Wear · Karachi</span>
+    <h1>Branded Lawn,<br/><span>Stitched with Love</span></h1>
+    <p class="hero-sub">Premium lawn from Gul Ahmed, Sapphire, Nisha & more — tailored into beautiful little outfits at smarter prices. Pre-shrunk for a perfect fit, every wash.</p>
+    <div class="hero-ctas">
+      <a href="#originals" class="btn-p">🛍️ Shop Now</a>
+      <a href="#sizes" class="btn-s">📐 Size Guide</a>
+    </div>
+  </div>
+  <div class="hero-imgs">
+    <img src="images/suit_navy.jpg" alt="Navy Pink Fringe Suit"/>
+    <img src="images/nc_mustard.jpg" alt="Mustard Paisley New Collection"/>
+  </div>
+</section>
+
+<div class="trust">
+  <span>🌿 Premium Branded Lawn</span>
+  <span>✂️ Fine Hand Stitching</span>
+  <span>🫧 Pre-Shrunk Fabric</span>
+  <span>📐 Custom Sizes Welcome</span>
+  <span>🚚 Delivery Rs.200</span>
+</div>
+
+<section class="sec">
+  <div class="sec-hd">
+    <p class="eyebrow">Why Rumi?</p>
+    <h2 class="sec-title">More Outfits, More Smiles</h2>
+    <p class="sec-sub">Because comfort makes every day beautiful</p>
+  </div>
+  <div class="why-grid">
+    <div class="wc"><div class="i">👗</div><h3>Easy to Wear</h3><p>No head-getting-stuck struggles. Thoughtful stitching means little ones dress happily.</p></div>
+    <div class="wc"><div class="i">🌸</div><h3>Branded Fabric</h3><p>Genuine lawn from Gul Ahmed, Sapphire, Nisha by Nishat & Sadozia at smarter prices.</p></div>
+    <div class="wc"><div class="i">💧</div><h3>Pre-Shrunk First</h3><p>Every fabric is washed before stitching — fits perfectly and keeps fitting wash after wash.</p></div>
+    <div class="wc"><div class="i">📏</div><h3>Any Size</h3><p>Standard sizes newborn to 6–7 years, plus customized measurements at no extra charge.</p></div>
+  </div>
+</section>
+
+<div class="feat-wrap">
+  <img src="images/feat1.jpg" alt="Easy to Wear Happy Kids"/>
+  <img src="images/feat2.jpg" alt="Perfect Fit Every Time"/>
+</div>
+
+<div class="col-banner cb-orig" id="originals">
+  <div><h2>Our Collection</h2><p>Each outfit made to order — stitched fresh for your little one</p></div>
+</div>
+<section class="sec sec-alt"><div class="pgrid" id="pgrid1"></div></section>
+
+<div class="col-banner cb-new" id="newcol">
+  <div><h2>✨ New Collection</h2><p>Fresh designs with matching lace on placket, cuffs, hem &amp; trousers</p></div>
+  <span class="new-badge">🆕 Just Arrived</span>
+</div>
+<section class="sec sec-alt"><div class="pgrid" id="pgrid2"></div></section>
+
+<section class="sec" id="fabrics">
+  <div class="sec-hd">
+    <p class="eyebrow">Available Fabrics</p>
+    <h2 class="sec-title">Choose Your Print</h2>
+    <p class="sec-sub">All premium branded lawn — tap any fabric to order in that print</p>
+  </div>
+  <div class="fgrid" id="fgrid"></div>
+</section>
+
+<section class="size-sec" id="sizes">
+  <div class="sec-hd">
+    <p class="eyebrow">Sizing Guide</p>
+    <h2 class="sec-title">Find the Perfect Fit</h2>
+    <p class="sec-sub">Standard sizes below — custom measurements always welcome!</p>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Age Group</th><th>Std Size</th><th>Shirt Length</th><th>Chest Width</th><th>Trouser Length</th></tr></thead>
+      <tbody>
+        <tr><td>0–1 Year</td><td>Size 16</td><td>15″–16″</td><td>11″</td><td>15″</td></tr>
+        <tr><td>1–2 Years</td><td>Size 18</td><td>17″–18″</td><td>12″</td><td>17″</td></tr>
+        <tr><td>2–3 Years</td><td>Size 20</td><td>19″–20″</td><td>13″</td><td>19″</td></tr>
+        <tr><td>3–4 Years</td><td>Size 22</td><td>21″–22″</td><td>14″</td><td>21″</td></tr>
+        <tr><td>4–5 Years</td><td>Size 24</td><td>23″–24″</td><td>14.5″</td><td>23″</td></tr>
+        <tr><td>5–6 Years</td><td>Size 26</td><td>25″–26″</td><td>15″</td><td>25″</td></tr>
+        <tr><td>6–7 Years</td><td>Size 28</td><td>27″–28″</td><td>16″</td><td>27″</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cnote">✨ <strong>We also accept customized sizes!</strong> Just mention your child's exact measurements when ordering via WhatsApp.</div>
+</section>
+
+<section class="sec" id="custom">
+  <div class="sec-hd">
+    <p class="eyebrow">Beyond the Catalogue</p>
+    <h2 class="sec-title">Customized Orders</h2>
+    <p class="sec-sub">Two ways we go the extra mile for you</p>
+  </div>
+  <div class="ccards">
+    <div class="ccard">
+      <div class="ctop ctop-s"><span class="cemoji">📏</span><div class="cbadge">Bigger Sizes</div></div>
+      <div class="cbody">
+        <h3 class="ctitle">Your Child Outgrew Size 7?<br/>We've Got You! 💕</h3>
+        <p class="cdesc">Our <strong>priority collection</strong> is lovingly crafted for <strong>ages 0–7 years</strong>. But growing kids deserve beautiful clothes too — we stitch bigger sizes under our customized category.</p>
+        <div class="cpts">
+          <div class="cpt">⭐ <span>Main range: <strong>Ages 0–7 yrs</strong> — fixed price, ready to order</span></div>
+          <div class="cpt">✂️ <span>Bigger sizes: <strong>Above 7 yrs</strong> — customized stitching on request</span></div>
+          <div class="cpt">💬 <span>Prices <strong>not fixed</strong> — we share the best price once you send measurements</span></div>
+        </div>
+        <a href="https://wa.me/923133164008?text=Hi%20Rumi!%20I%20need%20stitching%20for%20a%20bigger%20size%20(above%207%20years).%20Please%20guide%20me." target="_blank" class="cbtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ask About Bigger Sizes
+        </a>
+      </div>
+    </div>
+    <div class="ccard">
+      <div class="ctop ctop-d"><span class="cemoji">✏️</span><div class="cbadge cbd">Custom Design</div></div>
+      <div class="cbody">
+        <h3 class="ctitle">Love Our Fabric,<br/>Want Your Own Design? 🎨</h3>
+        <p class="cdesc">You've seen our premium lawn prints — now imagine them stitched in a style <strong>you choose</strong>. Just share a design photo and we'll stitch it from our fabric.</p>
+        <div class="cpts">
+          <div class="cpt">🌿 <span>We use our <strong>premium branded lawn</strong> fabrics</span></div>
+          <div class="cpt">🖼️ <span>You <strong>share a design photo</strong> on WhatsApp</span></div>
+          <div class="cpt">✂️ <span>Our tailor <strong>replicates the style</strong> on your chosen fabric</span></div>
+          <div class="cpt">💬 <span>Price shared after reviewing the design complexity</span></div>
+        </div>
+        <a href="https://wa.me/923133164008?text=Hi%20Rumi!%20I%20want%20a%20custom%20design%20stitched.%20I%20will%20share%20the%20design%20image." target="_blank" class="cbtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Share a Design on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="padding:clamp(2.5rem,6vw,4rem) clamp(1rem,6vw,4rem) 0;text-align:center;background:var(--blush)">
+  <p class="eyebrow">Transparent Pricing</p><h2 class="sec-title">Simple &amp; Affordable</h2>
+</div>
+<div class="sec sec-alt" id="pricing">
+  <div class="price-grid">
+    <div class="prcard">
+      <p class="pr-lbl">Newborn Size</p><p class="pr-amt"><sup>Rs.</sup>749</p><p class="pr-note">Excl. delivery</p>
+      <ul class="pr-list"><li>Complete stitched suit</li><li>0–1 Year (Size 16)</li><li>Premium lawn fabric</li><li>Pre-shrunk</li></ul>
+      <a href="#" onclick="openModal('Newborn Suit');return false;" class="obtn" style="justify-content:center;padding:10px">Order Now</a>
+    </div>
+    <div class="prcard feat">
+      <p class="pr-lbl">Complete Stitched Suit</p><p class="pr-amt"><sup>Rs.</sup>1,699</p><p class="pr-note">Excl. delivery</p>
+      <ul class="pr-list"><li>Complete stitched suit</li><li>All sizes 1–7 years</li><li>Premium branded lawn</li><li>Pre-shrunk fabric</li><li>Custom size option</li></ul>
+      <a href="#" onclick="openModal('Premium Stitched Suit');return false;" class="obtn" style="justify-content:center;padding:10px">Order Now</a>
+    </div>
+    <div class="prcard">
+      <p class="pr-lbl">Delivery</p><p class="pr-amt"><sup>Rs.</sup>200</p><p class="pr-note">Nationwide</p>
+      <ul class="pr-list"><li>All over Pakistan</li><li>Safe packaging</li><li>WhatsApp tracking</li></ul>
+    </div>
+  </div>
+</div>
+
+<section class="contact-sec" id="contact">
+  <p class="eyebrow">Get in Touch</p>
+  <h2 class="sec-title">Place Your Order</h2>
+  <p class="sec-sub">Send us a WhatsApp message — we'll confirm &amp; stitch it fresh!</p>
+  <div class="cc-wrap">
+    <a href="https://wa.me/923133164008" target="_blank" class="cc"><div class="cci">📱</div><h3>0313-3164008</h3><p>WhatsApp / Call</p></a>
+    <a href="https://wa.me/923292276681" target="_blank" class="cc"><div class="cci">📱</div><h3>0329-2276681</h3><p>WhatsApp / Call</p></a>
+  </div>
+  <a href="#" onclick="openModal('General Order');return false;" class="big-wa">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Place Order on WhatsApp
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 <strong>Rumi – Handmade Kids Wear</strong> · Branded Clothes, Smarter Prices, More Outfits, More Smiles 💕</p>
+  <p style="margin-top:5px">0313-3164008 &nbsp;|&nbsp; 0329-2276681</p>
+</footer>
+
+<div class="mov" id="modalOv">
+  <div class="modal">
+    <button class="mcl" onclick="closeModal()">✕</button>
+    <h2>Place Your Order</h2>
+    <p class="mdress" id="modalDress"></p>
+    <label>Your Name *</label><input type="text" id="mName" placeholder="e.g. Fatima Akhtar"/>
+    <label>Phone / WhatsApp *</label><input type="tel" id="mPhone" placeholder="e.g. 0312-1234567"/>
+    <label>Child's Age / Size</label>
+    <select id="mSize">
+      <option value="">Select size...</option>
+      <option>0–1 Year (Size 16)</option><option>1–2 Years (Size 18)</option>
+      <option>2–3 Years (Size 20)</option><option>3–4 Years (Size 22)</option>
+      <option>4–5 Years (Size 24)</option><option>5–6 Years (Size 26)</option>
+      <option>6–7 Years (Size 28)</option><option>Custom Size</option>
+    </select>
+    <label>Delivery Address *</label><textarea id="mAddr" placeholder="Full address for delivery..."></textarea>
+    <label>Special Notes</label><input type="text" id="mNotes" placeholder="Custom measurements, colour preference, etc."/>
+    <button class="msub" onclick="submitOrder()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Send Order via WhatsApp
+    </button>
+  </div>
+</div>
+
+<script>
+const originals=[
+  {name:"Navy Pink Fringe Suit",brand:"Sapphire",bc:"#1c2d6b",desc:"Chic navy with pink floral stripe & boho fringe trim. Tie-side kurta with matching trousers.",price:"Rs. 1,699",status:"limited",note:"⚡ Limited stock — Age 3–4 yrs only",img:"images/suit_navy.jpg",sw:"images/sw_blue_floral.jpg"},
+  {name:"Teal Floral Garden Suit",brand:"Sadozia Textile",bc:"#1a7a6e",desc:"Vibrant wildflower print beautifully piped with red ribbon trim.",price:"Rs. 1,699",status:"available",img:"images/suit_teal.jpg",sw:"images/sw_teal.jpg",colors:[{name:"Teal",sw:"images/sw_teal.jpg",hex:"#2a9d8f"},{name:"Blue",sw:"images/sw_blue2.jpg",hex:"#1a8ac4"}]},
+  {name:"Emerald Rose Suit",brand:"Gul Ahmed",bc:"#156a3e",desc:"Rich emerald green with tonal floral jacquard in soft premium lawn.",price:"Rs. 1,699",status:"available",img:"images/suit_green.jpg",sw:"images/sw_green.jpg"},
+  {name:"Blush Petal Garden Suit",brand:"Nisha by Nishat",bc:"#8c1a52",desc:"Cream base with soft pink & purple floral watercolour, bell sleeves with lacey trim.",price:"Rs. 1,699",status:"available",img:"images/suit_blush.jpg",sw:"images/sw_pink.jpg"},
+  {name:"Midnight Blossom Suit",brand:"Nisha by Nishat",bc:"#8c1a52",desc:"Black lawn with champagne floral print & silver lace neckline. Elegant & easy to wear.",price:"Rs. 1,699",status:"available",img:"images/suit_black.jpg",sw:"images/sw_navy.jpg"},
+];
+const newCol=[
+  {name:"Mustard Paisley Suit",brand:"Sadozia Textile",bc:"#b07d00",desc:"Vibrant mustard paisley & floral print. Teal lace on placket, cuffs, hem & trouser hem.",price:"Rs. 1,699",status:"new",img:"images/nc_mustard.jpg",sw:"images/nf_mustard.jpg",lace:"Teal lace trim"},
+  {name:"Navy Bloom Suit",brand:"Gul Ahmed",bc:"#1c2d6b",desc:"Dark navy with delicate orange floral spray. Striking orange lace on all key areas.",price:"Rs. 1,699",status:"new",img:"images/nc_navy.jpg",sw:"images/nf_navy.jpg",lace:"Orange lace trim"},
+  {name:"Brown Leaf Suit",brand:"Sadozia Textile",bc:"#5a3825",desc:"White base with bold brown, tan & blue leaf print. Rich brown lace finish.",price:"Rs. 1,699",status:"new",img:"images/nc_brownblue.jpg",sw:"images/nf_brownblue.jpg",lace:"Brown lace trim"},
+  {name:"Purple Rose Suit",brand:"Nisha by Nishat",bc:"#6a1a7a",desc:"Vibrant purple with watercolour floral blooms. Contrasted with olive green lace trim.",price:"Rs. 1,699",status:"new",img:"images/nc_purple.jpg",sw:"images/nf_purple.jpg",lace:"Olive lace trim"},
+  {name:"Cream Rose Suit",brand:"Nisha by Nishat",bc:"#8c6a2e",desc:"Soft cream base scattered with golden roses. Delicate ivory cream lace finish.",price:"Rs. 1,699",status:"new",img:"images/nc_cream.jpg",sw:"images/nf_cream.jpg",lace:"Cream lace trim"},
+  {name:"Beige Damask Suit",brand:"Gul Ahmed",bc:"#8c7a5e",desc:"Subtle beige-on-cream damask swirl — understated elegance with soft pink lace.",price:"Rs. 1,699",status:"new",img:"images/nc_beige.jpg",sw:"images/nf_beige.jpg",lace:"Pink lace trim"},
+];
+const allFabrics=[
+  {label:"Sadozia · Blue Floral",img:"images/sw_blue_floral.jpg"},
+  {label:"Nisha · Pink Blossom",img:"images/sw_pink.jpg"},
+  {label:"Gul Ahmed · Emerald",img:"images/sw_green.jpg"},
+  {label:"Nisha · Navy Bouquet",img:"images/sw_navy.jpg"},
+  {label:"Sadozia · Sky Garden (Teal)",img:"images/sw_teal.jpg"},
+  {label:"Sadozia · Sky Garden (Blue)",img:"images/sw_blue2.jpg"},
+  {label:"Sadozia · Mustard Paisley",img:"images/nf_mustard.jpg"},
+  {label:"Gul Ahmed · Navy Floral",img:"images/nf_navy.jpg"},
+  {label:"Sadozia · Brown Leaf",img:"images/nf_brownblue.jpg"},
+  {label:"Nisha · Purple Rose",img:"images/nf_purple.jpg"},
+  {label:"Nisha · Cream Rose",img:"images/nf_cream.jpg"},
+  {label:"Gul Ahmed · Beige Damask",img:"images/nf_beige.jpg"},
+];
+const selC={};
+function renderProducts(arr,gid){
+  const g=document.getElementById(gid);
+  arr.forEach((p,i)=>{
+    const id=gid+'_'+i;
+    const iL=p.status==='limited',iN=p.status==='new',iO=p.status==='out';
+    const bc=iO?'pb-o':iL?'pb-l':iN?'pb-n':'pb-a';
+    const bt=iO?'Sold Out':iL?'⚡ Limited Stock':iN?'✨ New':'✦ Available';
+    const hC=p.colors&&p.colors.length>1;
+    const cH=hC?`<div class="cpick"><span class="cpick-lbl">Colour:</span><div class="cpick-dots" id="cd-${id}">${p.colors.map((c,ci)=>`<button class="cdot${ci===0?' active':''}" style="background:${c.hex}" title="${c.name}" onclick="pC('${id}',${i},'${gid}',${ci},this)"></button>`).join('')}</div><span class="cname" id="cn-${id}">${p.colors[0].name}</span></div>`:'';
+    const lH=p.lace?`<div class="ltag">🧵 ${p.lace}</div>`:'';
+    const aH=iO?`<span style="background:#bbb;color:#fff;border:none;border-radius:22px;padding:9px 16px;font-size:12px;font-weight:600">Sold Out</span>`:`<a href="#" onclick="openModal('${p.name} · ${p.brand}','${id}','${gid}',${i});return false;" class="obtn">🛒 Order</a>`;
+    g.innerHTML+=`<div class="pcard"><div class="pcard-img"><img class="main" src="${p.img}" alt="${p.name}" loading="lazy" id="pi-${id}"/><span class="pbadge ${bc}">${bt}</span><div class="pswatch"><img src="${p.sw}" alt="swatch" id="ps-${id}"/></div></div><div class="pinfo"><p class="pbrand" style="color:${p.bc}">${p.brand}</p><h3 class="pname">${p.name}</h3><span class="ftag">🌿 Lawn</span><p class="pdesc">${p.desc}</p>${lH}${cH}${iL?`<div class="snote">⚠️ ${p.note}</div>`:''}<div class="prow"><div class="pprice">${p.price} <span>/ suit</span></div>${aH}</div></div></div>`;
+  });
+}
+function pC(id,pi,gid,ci,btn){const arr=gid==='pgrid1'?originals:newCol;const p=arr[pi];selC[id]=ci;document.getElementById('ps-'+id).src=p.colors[ci].sw;document.getElementById('cn-'+id).textContent=p.colors[ci].name;document.querySelectorAll('#cd-'+id+' .cdot').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+renderProducts(originals,'pgrid1');
+renderProducts(newCol,'pgrid2');
+const fg=document.getElementById('fgrid');
+allFabrics.forEach(f=>{fg.innerHTML+=`<div class="fcard" onclick="openModal('Custom suit in: ${f.label}')"><img src="${f.img}" alt="${f.label}" loading="lazy"/><div class="flbl">${f.label}</div></div>`;});
+let cur='';
+function openModal(d,id,gid,pi){let s='';if(id&&selC[id]!==undefined){const arr=gid==='pgrid1'?originals:newCol;const p=arr[pi];if(p&&p.colors)s=' · Colour: '+p.colors[selC[id]].name;}cur=d+s;document.getElementById('modalDress').textContent=cur;document.getElementById('modalOv').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modalOv').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('modalOv').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+function submitOrder(){const n=document.getElementById('mName').value.trim(),ph=document.getElementById('mPhone').value.trim(),sz=document.getElementById('mSize').value,ad=document.getElementById('mAddr').value.trim(),nt=document.getElementById('mNotes').value.trim();if(!n||!ph||!ad){alert('Please fill in your name, phone number, and address.');return;}const msg=`🌸 *New Order – Rumi Kids Wear*\n\n👗 *Item:* ${cur}\n👤 *Name:* ${n}\n📱 *Phone:* ${ph}\n📏 *Size:* ${sz||'Not specified'}\n📍 *Address:* ${ad}${nt?'\n📝 *Notes:* '+nt:''}\n\n_Sent via Rumi website_`;window.open(`https://wa.me/923133164008?text=${encodeURIComponent(msg)}`,'_blank');closeModal();}
+</script>
+</body>
+</html>
